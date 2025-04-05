@@ -1,3 +1,4 @@
+import Tabs from "../Components/Home/HomeTabs/Tabs";
 import ImageSlider from "../Components/Home/ImageSlider";
 import Marquee from "../Components/Home/Marquee";
 
@@ -9,6 +10,7 @@ const Home = () => {
               <div className="pt-6">
                 <Marquee />
               </div>
+              <Tabs/>
         </div>
     );
 };
