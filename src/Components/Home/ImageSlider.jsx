@@ -70,7 +70,7 @@ const ImageSlider = () => {
           ))}
         </div>
 
-        <div className="absolute hidden  bottom-0 lg:bottom-4 left-1/2 transform -translate-x-1/2 lg:flex gap-2 bg-customBlack bg-opacity-50 px-4 py-1 md:py-2 lg:py-2 rounded-lg">
+        <div className="absolute hidden  bottom-0 lg:bottom-4 left-1/2 transform -translate-x-1/2 lg:flex gap-2 bg-black bg-opacity-50 px-4 py-1 md:py-2 lg:py-2 rounded-lg">
           {banners.map((_, index) => (
             <button
               key={index}
@@ -96,7 +96,7 @@ const ImageSlider = () => {
                   viewBox="0 0 24 24"
                   strokeWidth="2"
                   stroke="white"
-                  className="w-6 h-6"
+                  className="w-6 h-6 bg-bgYellow"
                 >
                   <path
                     strokeLinecap="round"
@@ -116,7 +116,7 @@ const ImageSlider = () => {
                   viewBox="0 0 24 24"
                   strokeWidth="2"
                   stroke="white"
-                  className="w-6 h-6"
+                  className="w-6 h-6 bg-bgYellow"
                 >
                   <path
                     strokeLinecap="round"

@@ -32,13 +32,13 @@ const Language = () => {
         onClick={toggleDropdown}
         className="flex  justify-between gap-32 items-center p-3 bg-bgPrimary rounded-lg shadow-md cursor-pointer"
       >
-        <div className="flex  justify-between  items-center gap-2">
+        <div className="flex  justify-between  items-center md:gap-2 gap-1">
           <img
             src={languages[language].flag}
             alt={languages[language].label}
-            className="w-8 h-8 rounded-full object-cover"
+            className="w-6 h-6 lg:w-8 lg:h-8 rounded-full object-cover"
           />
-          <span className="text-lg font-semibold text-white">
+          <span className="lg:text-lg text-xs font-semibold text-white">
             {languages[language].label}
           </span>
         </div>
@@ -53,14 +53,19 @@ const Language = () => {
         className="flex items-center justify-start rounded-md gap-2 px-4 py-3 hover:bg-bgGreen cursor-pointer"
       >
         <img src={bdImage} alt="Bangla Flag" className="w-6 h-6" />
-        <span className="text-white">বাংলা</span>
+        <span className="text-white">
+          {language ==="en"? "Bangla":"বাংলা"}
+          </span>
       </div>
       <div
         onClick={() => handleLanguageChange("en")}
         className="flex items-center justify-start rounded-md gap-2 px-4 py-3 hover:bg-bgGreen cursor-pointer"
       >
         <img src={usImage} alt="English Flag" className="w-6 h-6" />
-        <span className="text-white">English</span>
+        <span className="text-white">
+        {language ==="en"? "English":"ইংরেজি"}
+          
+          </span>
         
       </div>
     </div>
