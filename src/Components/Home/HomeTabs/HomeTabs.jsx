@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext,  useState } from "react";
 import tab1Image from "../../../assets/download (1).png";
 import tab2Image from "../../../assets/download (2).png";
 import tab3Image from "../../../assets/download (3).png";
@@ -97,7 +97,7 @@ import LotteryImageContent1 from "../../../assets/gcs__ELOTT-SEALOTT_17377089042
 import LobbyTab from "./LobbyTab";
 import HomeContent from "./HomeContent";
 import { LanguageContext } from "../../../Context/LanguageContext";
-import { useOutletContext } from "react-router-dom";
+import { useLocation, useOutletContext } from "react-router-dom";
 
 const HomeTabs = () => {
     const { language } = useContext(LanguageContext);
@@ -317,9 +317,20 @@ const HomeTabs = () => {
   //       setScrollIndex(scrollIndex + 1);
   //     }
   //   };
-  useEffect(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, [activeTab]);
+  // useEffect(() => {
+  //     window.scrollTo({ top: 0, behavior: "smooth" });
+  //   }, [activeTab]);
+    const location = useLocation();
+
+  // useEffect(() => {
+  //   if (location.hash) {
+  //     const elementId = location.hash.replace("#", "");
+  //     const el = document.getElementById(elementId);
+  //     if (el) {
+  //       el.scrollIntoView({ behavior: "smooth" });
+  //     }
+  //   }
+  // }, [location]);
   return (
     <div className="p-4 bg-tabBackground mt-4 ">
       {/* Tabs */}

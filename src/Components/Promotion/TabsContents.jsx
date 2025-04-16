@@ -2,7 +2,7 @@ const TabsContents = ({ promotions, language }) => {
     return (
       <div>
         {promotions.length > 0 ? (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 py-1 px-4 lg:px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 py-1 px-4 lg:px-4">
             {promotions.map((item, index) => (
               <div key={index} className="relative bg-gray-200 shadow-lg rounded-xl">
                 <img src={item.image} alt="promotion" className="w-full h-auto " />

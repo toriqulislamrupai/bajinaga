@@ -5,6 +5,7 @@ import Sidebar from "../Components/Sidebar/Sidebar";
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Modal from "../Components/LoginRegisterModal/Modal";
+import SmallDeviceModal from "../Components/SmallDeviceModal/SmallDeviceModal";
 
 const MainLayout = () => {
   const [menuOpen, setMenuOpen] = useState(true);
@@ -13,6 +14,8 @@ const MainLayout = () => {
   const [autoActiveTab, setAutoActiveTab] = useState("login"); // 'login' or 'register'
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isInformationModalOpen, setIsInformationModalOpen] = useState(false);
+  const [isModal, setIsModal] = useState(true);
+
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -49,17 +52,19 @@ const MainLayout = () => {
   };
 
   return (
-    <div>
+    <div className="">
+      <SmallDeviceModal isModal={isModal} setIsModal={setIsModal}/>
       <Header
         menuOpen={menuOpen}
         toggleMenu={toggleMenu}
         autoToggleMenu={autoToggleMenu}
         autoOpenModal={autoOpenModal}
-         openLoginModal = {openLoginModal}
+        openLoginModal={openLoginModal}
+        setIsInformationModalOpen={setIsInformationModalOpen}
       />
       {/* outlet and Footer */}
-      <div className="flex">
-        <div>
+      <div className="flex  ">
+        <div className="">
           <Sidebar
             menuOpen={menuOpen}
             toggleMenu={toggleMenu}
@@ -67,7 +72,7 @@ const MainLayout = () => {
             setIsInformationModalOpen={setIsInformationModalOpen}
           />
         </div>
-        <div className="w-full flex flex-col overflow-y-auto custom-scrollbar-hidden h-[500px] lg:h-[500px] bg-tabBackgroundTwo mx-auto  pt-4 ">
+        <div className="static w-full h-[600px] md:h-[600px] flex flex-col overflow-y-auto  custom-scrollbar-hidden  bg-tabBackgroundTwo mx-auto  pt-4 pb-32  md:pb-36 ">
           <div className="lg:mx-auto">
             <Outlet context={{ activeTab, setActiveTab }} />
           </div>

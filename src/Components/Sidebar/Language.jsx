@@ -38,7 +38,7 @@ const Language = () => {
             alt={languages[language].label}
             className="w-6 h-6 lg:w-8 lg:h-8 rounded-full object-cover"
           />
-          <span className="lg:text-lg text-xs font-semibold text-white">
+          <span className="lg:text-base text-xs font-semibold text-white">
             {languages[language].label}
           </span>
         </div>
@@ -46,8 +46,8 @@ const Language = () => {
       </div>
 
       {isOpen && (
-  <div className="absolute z-10 mt-2 px-2 w-full rounded-lg shadow-md">
-    <div className="grid grid-cols-1  gap-2">
+  <div className=" z-10 mt-2 lg:mt-0 px-2 w-full rounded-lg shadow-md">
+    <div className="grid grid-cols-1  gap-2 lg:gap-0">
       <div
         onClick={() => handleLanguageChange("bn")}
         className="flex items-center justify-start rounded-md gap-2 px-4 py-3 hover:bg-bgGreen cursor-pointer"

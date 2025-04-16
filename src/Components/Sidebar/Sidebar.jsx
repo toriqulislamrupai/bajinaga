@@ -1,7 +1,4 @@
 import { GoArrowRight } from "react-icons/go";
-import { FaMoneyBillWave, FaGift, FaUserShield } from "react-icons/fa";
-import { MdCampaign, MdAttachMoney } from "react-icons/md";
-import { RiUserSettingsLine } from "react-icons/ri";
 import earnMoneyImage from "../../assets/invite-bg.614f50bc.png";
 import { IoMdDownload } from "react-icons/io";
 import { RiCustomerService2Line } from "react-icons/ri";
@@ -10,7 +7,14 @@ import SidebarTabs from "./SidebarTabs";
 import { Link } from "react-router-dom";
 import PersonalCenterModal from "../../pages/PersonalCenterModal";
 import { LanguageContext } from "../../Context/LanguageContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import depositImage from "../../assets/deposit.png";
+import withdrawImage from "../../assets/withdraw.png";
+import promotionImage from "../../assets/promotion.png";
+import rewardImage from "../../assets/reward.png";
+import rebateImage from "../../assets/rebate.png";
+import memberImage from "../../assets/member.png";
+
 const Sidebar = ({
   menuOpen,
   activeTab,
@@ -22,51 +26,82 @@ const Sidebar = ({
   const { language } = useContext(LanguageContext);
 
   const tabs = [
-    { label: "খেলা", path: "/" },
-    { label: "ইভেন্ট", path: "/promotion" },
+    { label: language === "bn" ? "খেলা" : "Games", path: "/" },
+    { label: language === "bn" ? "ইভেন্ট" : "Events", path: "/promotion" },
   ];
 
   const supportData = [
-    { id: 1, name: " লাইভ সাপোর্ট", icon: <RiCustomerService2Line /> },
-    { id: 2, name: " অ্যাপ ডাউনলোড", icon: <IoMdDownload /> },
+    {
+      id: 1,
+      name: language === "bn" ? "লাইভ সাপোর্ট" : "Live Support",
+      icon: <RiCustomerService2Line />,
+    },
+    {
+      id: 2,
+      name: language === "bn" ? "অ্যাপ ডাউনলোড" : "App Download",
+      icon: <IoMdDownload />,
+    },
   ];
 
   const menuItems = [
-    { id: 2, name: " জমা", icon: <MdAttachMoney />, link: "/information#tab2" },
+    {
+      id: 2,
+      name: language === "bn" ? "জমা" : "Deposit",
+      icon: depositImage,
+      link: "/information#tab2",
+    },
     {
       id: 3,
-      name: " উত্তোলন",
-      icon: <FaMoneyBillWave />,
+      name: language === "bn" ? "উত্তোলন" : "Withdraw",
+      icon: withdrawImage,
       link: "/information#tab3",
     },
-    { id: 11, name: " প্রচার", icon: <MdCampaign />, link: "/promotion" },
+    {
+      id: 11,
+      name: language === "bn" ? "প্রচার" : "Promotion",
+      icon: promotionImage,
+      link: "/promotion",
+    },
     {
       id: 7,
-      name: " পুরস্কার কেন্দ্র",
-      icon: <FaGift />,
+      name: language === "bn" ? "পুরস্কার " : "Reward ",
+      icon: rewardImage,
       link: "/information#tab7",
     },
-    { id: 5, name: " রিবেট", icon: <FaUserShield /> },
-    { id: 6, name: " সদস্য কেন্দ্র", icon: <RiUserSettingsLine /> },
+    {
+      id: 10,
+      name: language === "bn" ? "রিবেট" : "Rebate",
+      icon: rebateImage,
+      link: "/information#tab10",
+    },
+    {
+      id: 1,
+      name: language === "bn" ? "সদস্য " : "Member ",
+      icon: memberImage,
+      link: "/information#tab12",
+    },
   ];
 
-  return (
-    <div
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [menuOpen]);
 
-    // className={`fixed lg:static top-16  h-full z-50 w-64 bg-bgPrimary text-white transition-transform duration-300 ${
-    //    menuOpen ? "translate-x-0" : "-translate-x-full"
-    //  } overflow-y-auto custom-scrollbar-hidden pb-20`}
-    >
+  return (
+    <div>
       {menuOpen && (
         <>
           {/* Overlay for small devices */}
           <div
             onClick={toggleMenu}
-            className="fixed inset-0 bg-black bg-opacity-40 z-20 lg:hidden"
+            className="fixed  inset-0 bg-black bg-opacity-40 z-20 lg:hidden"
           ></div>
 
           {/* Sidebar */}
-          <div className="h-full lg:h-[500px] fixed lg:static z-50 w-52 lg:w-64 bg-bgPrimary text-white transition-transform duration-300 overflow-y-auto custom-scrollbar-hidden pb-60 lg:pb-36">
+          <div className="h-full lg:h-[600px]  fixed lg:static z-50 w-52 lg:w-64 bg-bgPrimary  text-white transition-transform duration-300 overflow-y-auto custom-scrollbar-hidden pb-60 lg:pb-20">
             {/* Sidebar Tabs */}
             <div className="hidden md:block">
               <SidebarTabs
@@ -88,9 +123,27 @@ const Sidebar = ({
                       : () => setIsInformationModalOpen(true)
                   }
                 >
-                  <li className="p-3 flex my-2 justify-between items-center bg-bgGreen rounded-md cursor-pointer">
-                    <span className="text-2xl">{item.icon}</span>
-                    {item.name}
+                  <li className="p-3 flex my-2 justify-between items-center text-white text-opacity-70 hover:text-opacity-100 bg-bgGreen hover:bg-bgGreenTwo rounded-md cursor-pointer">
+                    {/* <span className="text-2xl">{item.icon}</span> */}
+                    <div className="flex gap-2 ">
+                      <img
+                        src={item.icon}
+                        alt=""
+                        className={` 
+                           ${
+                          item.id === 7
+                            ? "w-[25%]"
+                            : item.id === 10
+                            ? "w-[25%]"
+                            : item.id === 1
+                            ? "w-[25%]"
+                            : "w-[25%]"
+                        }
+                        `}
+                      />
+                      <span className="w-[100%] text-right">{item.name}</span>
+                    </div>
+
                     <GoArrowRight className="text-xl" />
                   </li>
                 </Link>
@@ -98,12 +151,21 @@ const Sidebar = ({
             </ul>
 
             {/* Earn Button */}
+            <Link to={"/information#tab8"}
+            onClick={
+              
+                 () => setIsInformationModalOpen(true)
+            }
+            >
+            
             <button className="relative flex items-center p-3 cursor-pointer">
               <span className="absolute left-2 text-white px-2 py-1 rounded-md">
-                অর্থ উপার্জন
+                {language === "bn" ? "অর্থ উপার্জন" : "Earn Money"}
               </span>
               <img src={earnMoneyImage} alt="earn money" className="ml-18" />
             </button>
+            
+            </Link>
 
             {/* Support */}
             <ul className="p-4 flex items-center gap-2">

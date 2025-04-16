@@ -25,8 +25,17 @@ import image4 from "../assets/1741347700750_75 sec deposit bonus.webp";
 import Tabs from "../Components/Promotion/Tabs";
 import TabsContents from "../Components/Promotion/TabsContents";
 import { LanguageContext } from "../Context/LanguageContext";
+import { useLocation } from "react-router-dom";
 
 const Promotion = () => {
+  const location = useLocation(); // Hook to track the current location
+  
+    useEffect(() => {
+      // Scroll to the top of the page when the location changes
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [location]); // Runs every time the location changes (e.g., URL hash)
+  
+  
   const { language } = useContext(LanguageContext);
   const [activeTab, setActiveTab] = useState(1);
   const [promotions, setPromotions] = useState([]);

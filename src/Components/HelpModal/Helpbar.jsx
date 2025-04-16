@@ -1,8 +1,9 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { LanguageContext } from "../../Context/LanguageContext";
 
 const HelpBar = () => {
+  
   const [activeTab, setActiveTab] = useState("tab1");
   const location = useLocation();
   const { language } = useContext(LanguageContext);
@@ -26,7 +27,7 @@ const HelpBar = () => {
               {language === "en" ? "About Us" : "আমাদের সম্পর্কে"}
             </h2> */}
             <div className="space-y-4 text-sm">
-              <p className=" underline leading-relaxed">
+              <p className=" text-yellow underline leading-relaxed">
                 {language === "en" ? "About Us" : "আমাদের সম্পর্কে"}
               </p>
               <p className=" leading-relaxed">
@@ -35,7 +36,7 @@ const HelpBar = () => {
                   : "Betnaga একটি অনলাইন বিনোদন ব্র্যান্ড এবং ক্রিকেট এক্সচেঞ্জ প্ল্যাটফর্মের শীর্ষস্থানীয় বিশেষজ্ঞ। ক্রিকেট সবসময়ই সংখ্যার খেলা, এবং Betnaga আমাদের গ্রাহকদের জন্য ক্রিকেট বেটিংয়ের মাধ্যমে অসাধারণ আনন্দ এবং গেমিং অভিজ্ঞতা দেওয়ার জন্য প্রতিশ্রুতিবদ্ধ। Betnaga-এর দীর্ঘমেয়াদী লক্ষ্য হল বিশ্বের সবচেয়ে জনপ্রিয় ডিজিটাল স্পোর্টস বেটিং প্ল্যাটফর্ম হয়ে ওঠা। আমরা ক্রিকেটকে আরও প্রতিযোগিতামূলক, বিনোদনমূলক এবং আকর্ষণীয় করে তোলার ক্ষেত্রে নেতৃত্ব দিতে থাকব।"}
               </p>
   
-              <p className=" underline leading-relaxed">
+              <p className=" text-yellow underline leading-relaxed">
                 {language === "en" ? "Diverse Products" : "বৈচিত্র্যময় পণ্য"}
               </p>
               <p className=" leading-relaxed">
@@ -44,7 +45,7 @@ const HelpBar = () => {
                   : "Betnaga সবচেয়ে স্বতন্ত্র এবং উল্লেখযোগ্য অনলাইন বিনোদন ব্র্যান্ড হিসাবে খ্যাতি অর্জন করেছে, যা গেমারদের অত্যাধুনিক অনলাইন বিনোদন প্ল্যাটফর্মের বিস্তৃত পরিসর সরবরাহ করে। আপনি যে গেমই পছন্দ করুন না কেন, উন্নত প্ল্যাটফর্মে অত্যাশ্চর্য ভিজ্যুয়াল, অ্যানিমেশন, গেমপ্লে, সমন্বিত প্লেব্যাক স্পিড, পারফরম্যান্স এফেক্ট এবং সাউন্ড এফেক্টসহ বিশাল নগদ পুরস্কার জয়ের সুযোগ পাবেন।"}
               </p>
   
-              <p className=" underline leading-relaxed">
+              <p className=" text-yellow underline leading-relaxed">
                 {language === "en"
                   ? "Excellent Customer Service"
                   : "চমৎকার গ্রাহক সেবা"}
@@ -55,7 +56,7 @@ const HelpBar = () => {
                   : "আমাদের গ্রাহক পরিষেবা বিভাগ সপ্তাহের ৭ দিন, ২৪ ঘণ্টা নিরবচ্ছিন্ন পরিষেবা প্রদান করে - যত দ্রুত সম্ভব, বিনয়ের সাথে এবং দক্ষতার সাথে আপনার প্রশ্নগুলোর উত্তর দেয় এবং সমস্যা সমাধান করে।"}
               </p>
   
-              <p className=" underline leading-relaxed">
+              <p className=" text-yellow underline leading-relaxed">
                 {language === "en"
                   ? "Fraud & Security"
                   : "জালিয়াতি এবং নিরাপত্তা"}
@@ -66,7 +67,7 @@ const HelpBar = () => {
                   : "প্রতিটি খেলোয়াড় শুধুমাত্র একটি অ্যাকাউন্ট খুলতে পারেন, এবং আমরা কঠোর নিরাপত্তা নিয়ন্ত্রণের মাধ্যমে সিস্টেমের সততা এবং ন্যায্যতা বজায় রাখি। যদি আমরা কোনো জালিয়াতির কার্যকলাপ শনাক্ত করি, তাহলে আমরা সেই খেলোয়াড়ের অ্যাকাউন্ট বন্ধ করে দেব। আমাদের শর্তাবলী অনুসারে, কোনো জালিয়াতির মাধ্যমে অর্জিত অর্থ কোম্পানির দ্বারা সংরক্ষিত হবে।"}
               </p>
   
-              <p className=" underline leading-relaxed">
+              <p className=" text-yellow underline leading-relaxed">
                 {language === "en" ? "Responsible Gaming" : "দায়িত্বশীল গেমিং"}
               </p>
               <p className=" leading-relaxed">
@@ -92,19 +93,19 @@ const HelpBar = () => {
                 {language === "en" ? "Contact Us" : "যোগাযোগ করুন"}
               </h2>
               <p className="">
-                <span className="underline">
+                <span className="text-yellow underline">
                   {language === "en" ? "Phone" : "ফোন"}:
                 </span>{" "}
                 <br /> +33756757364 (WhatsApp)
               </p>
               <p className="">
-                <span className="underline">
+                <span className="text-yellow underline">
                   {language === "en" ? "Email" : "ইমেইল"}:
                 </span>{" "}
                 <br /> support@oraclesoft.org
               </p>
               <p className="">
-                <span className="underline">
+                <span className="text-yellow underline">
                   {language === "en" ? "Address" : "ঠিকানা"}:
                 </span>{" "}
                 <br /> SkyCasino Level 1 Genting Highlands, Malaysia
@@ -1068,7 +1069,7 @@ const HelpBar = () => {
       label:
         language === "en"
           ? "FAQ"
-          : "প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী",
+          : " জিজ্ঞাসিত প্রশ্নাবলী",
       content: (
         <div className="space-y-4 text-white ">
           {/* <h2 className="text-2xl text-center border-b-4 border-common-blue font-semibold text-common-blue">
@@ -1083,7 +1084,7 @@ const HelpBar = () => {
                 : "প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী"}
             </p>
 
-            <p className=" underline leading-relaxed">
+            <p className=" text-yellow underline leading-relaxed">
               {language === "en" ? "Age Requirement" : "বয়সের প্রয়োজনীয়তা"}
             </p>
             <p className=" leading-relaxed">
@@ -1092,7 +1093,7 @@ const HelpBar = () => {
                 : "Betnaga-এর গ্রাহকদের অবশ্যই 18 বছর বা তার বেশি বয়সী হতে হবে এবং কোম্পানির শর্তাবলী মেনে চলতে সম্মত হতে হবে।"}
             </p>
 
-            <p className=" underline leading-relaxed">
+            <p className=" text-yellow underline leading-relaxed">
               {language === "en"
                 ? "Forgot Username or Password?"
                 : "আপনার ব্যবহারকারী নাম বা পাসওয়ার্ড ভুলে গেছেন?"}
@@ -1103,7 +1104,7 @@ const HelpBar = () => {
                 : "গ্রাহকরা স্বয়ংক্রিয়ভাবে 'পাসওয়ার্ড ভুলে গেছেন' ক্লিক করে অনলাইন গ্রাহক পরিষেবার সাথে লিঙ্ক করতে পারেন। ২৪-ঘন্টা অনলাইন গ্রাহক পরিষেবা পেশাদার যাচাইকরণ পরিকল্পনা পাস করার পরে আপনাকে একটি সমাধান প্রদান করবে।"}
             </p>
 
-            <p className=" underline leading-relaxed">
+            <p className=" text-yellow underline leading-relaxed">
               {language === "en" ? "Deposit Steps" : "জমা করার পদক্ষেপ"}
             </p>
             <p className=" leading-relaxed">
@@ -1118,7 +1119,7 @@ const HelpBar = () => {
                    (রিচার্জের উপরের এবং নিচের সীমা পেমেন্ট চ্যানেলের সাপেক্ষে)`}
             </p>
 
-            <p className=" underline leading-relaxed">
+            <p className=" text-yellow underline leading-relaxed">
               {language === "en"
                 ? "How to Withdraw Money"
                 : "কিভাবে টাকা তোলা যায়"}
@@ -1133,7 +1134,7 @@ const HelpBar = () => {
                    প্রতি লেনদেন প্রত্যাহারের সীমা হল ৳800 এবং প্রতিদিন তোলার সীমা হল ৳30,000।`}
             </p>
 
-            <p className=" underline leading-relaxed">
+            <p className=" text-yellow underline leading-relaxed">
               {language === "en"
                 ? "Personal Data Security"
                 : "ব্যক্তিগত তথ্য নিরাপত্তা"}
@@ -1144,7 +1145,7 @@ const HelpBar = () => {
                 : "কোম্পানি গ্যারান্টি দেয় যে আপনার ব্যক্তিগত তথ্য তৃতীয় পক্ষের সাথে শেয়ার করা হবে না। এছাড়াও আমরা আপনার ব্যক্তিগত তথ্যের নিরাপত্তার নিশ্চয়তা দিই এবং আপনার তথ্য শুধুমাত্র আমাদের কাছে সীমাবদ্ধ করি।"}
             </p>
 
-            <p className=" underline leading-relaxed">
+            <p className=" text-yellow underline leading-relaxed">
               {language === "en" ? "Central Wallet" : "কেন্দ্রীয় ওয়ালেট"}
             </p>
             <p className=" leading-relaxed">
@@ -1157,36 +1158,77 @@ const HelpBar = () => {
       ),
     },
     
+    {
+      id: "tab5",
+      label: language === "en" ? "Privacy Policy" : "গোপনীয়তা নীতি",
+      content: (
+        <div>
+          {language === "en" ? "Privacy Policy" : "গোপনীয়তা"}
+        </div>
+      ),
+    },
+    {
+      id: "tab6",
+      label: language === "en" ? "Rules and Regulation" : "এর জন্য নিয়মকানুন",
+      content: (
+        <div>
+          {language === "en" ? "Rules and Regulation" : "এর জন্য নিয়মকানুন"}
+        </div>
+      ),
+    },
+    {
+      id: "tab7",
+      label: language === "en" ? "Responsible Gambling" : "দায়িত্বশীল গেমিং",
+      content: (
+        <div>
+          {language === "en" ? "Responsible Gambling" : "দায়িত্বশীল গেমিং"}
+        </div>
+      ),
+    },
+    
 
    
    
   ];
 
+  const tabRefs = useRef({});
+
+  useEffect(() => {
+    if (tabRefs.current[activeTab]) {
+      tabRefs.current[activeTab].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [activeTab]);
   return (
-    <div className="min-h-screen bg-bgPrimary flex flex-col items-center p-4 ">
-        <h3 className="text-6xl hidden md:block font-semibold">Help Center</h3>
+    <div className="min-h-screen bg-bgPrimary flex flex-col items-center   md:pb-0 ">
+        <h3 className="lg:text-6xl text-center w-full lg:w-aut0 border-b border-white border-opacity-50 lg:border-none py-2 font-semibold">
+          {language === "en"? "Help Center":"সাহায্য কেন্দ্র"}
+          </h3>
       {/* Main Layout */}
-      <div className="flex flex-col md:flex-row max-w-6xl w-full bg-bgPrimary shadow-lg rounded-lg ">
+      <div className="flex flex-col md:flex-row max-w-6xl w-full bg-bgPrimary shadow-lg px-4 rounded-lg ">
         {/* Sidebar */}
-        <div className="mt-8 md:w-1/4 bg-black text-white flex flex-col md:p-6  md:space-y-3 shadow-md md:flex">
-          
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              className={`p-3 text-xs md:text-sm lg:text-base text-left rounded-lg transition-all  duration-300 font-medium block ${
-                activeTab === tab.id
-                  ? "bg-bgGreen "
-                  : "hover:bg-bgGreen"
-              }`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+        <div className="mt-2 md:mt-8 md:w-1/4 md:bg-black text-white flex md:flex-col py-2 lg:py-0 md:p-6 whitespace-nowrap overflow-x-auto md:space-y-3 shadow-md md:flex">
+      {tabs.map((tab) => (
+        <button
+          key={tab.id}
+          ref={(el) => (tabRefs.current[tab.id] = el)} // store ref
+          className={`p-3 text-xs md:text-sm lg:text-base text-left rounded-lg transition-all duration-300 font-medium block ${
+            activeTab === tab.id
+              ? "md:bg-bgGreen text-yellow md:no-text-yellow underline md:text-white"
+              : "md:hover:bg-bgGreen"
+          }`}
+          onClick={() => setActiveTab(tab.id)}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
 
         {/* Content */}
-        <div id="tab-content" className="w-full text-white overflow-y-auto max-h-[80vh] custom-scrollbar-hidden  md:w-3/4 p-6">
+        <div id="tab-content" className="w-full text-white overflow-y-auto max-h-[80vh] custom-scrollbar-hidden  md:w-3/4 p-6 pb-[30%] md:pb-0">
           {tabs.find((tab) => tab.id === activeTab)?.content}
         </div>
       </div>

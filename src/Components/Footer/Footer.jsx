@@ -39,7 +39,7 @@ const Footer = ({setActiveTab,isModalOpen,
           ];
         
     return (
-        <div className="text-white pb-28 md:pb-0 ">
+        <div className="text-white  md:pb-0 ">
            <div className="grid grid-cols-1 md:grid-cols-4">
             
             <Help 
@@ -54,14 +54,14 @@ const Footer = ({setActiveTab,isModalOpen,
             
             <SocialMedia/>
             </div> 
-            <div className="md:hidden">
+            <div className="">
             <div className="p-4 grid grid-cols-5 gap-4">
       {images.map((image, index) => (
         <div key={index} className="relative  ">
           <img
             src={image}
             alt={`Image ${index + 1}`}
-            className="  rounded-lg"
+            className="md:w-[60%]  rounded-lg"
           />
         </div>
       ))}

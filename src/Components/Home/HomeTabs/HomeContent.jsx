@@ -1,14 +1,25 @@
 import { useEffect } from "react";
 import { FaPlayCircle } from "react-icons/fa";
 
+// Define slugs matching Product component
+const tabSlugs = {
+  1: "slots",
+  2: "sports",
+  3: "live",
+  4: "fish",
+  5: "poker",
+  6: "lottery",
+};
+
 const HomeContent = ({ activeTab, data, subTabsState }) => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [activeTab]);
+
   return (
     <div>
       {activeTab !== 0 && (
-        <div>
+        <div id={tabSlugs[activeTab]}>
           {/* Check if current tab is NOT 'kheladhul' or 'lottery khela' */}
           {activeTab !== 2 && activeTab !== 6 && (
             <>
@@ -16,30 +27,30 @@ const HomeContent = ({ activeTab, data, subTabsState }) => {
               <div className="flex justify-start overflow-x-auto">
                 <div className="bg-bgPrimary p-2 mb-6">
                   <div className="flex  justify-center gap-4 ">
-                    {data[activeTab].items
-                      //   .slice(scrollIndex, scrollIndex + 9)
-                      .map((item, index) => {
-                        const [activeSubTab, setActiveSubTab] =
-                          subTabsState[activeTab];
-                        return (
-                          <button
-                            key={index}
-                            className={`px-6 md:px-4 md:py-2 shadow text-white flex flex-col items-center justify-center ${
-                              activeSubTab === index
-                                ? "bg-bgYellow rounded-lg"
-                                : "hover:bg-bgYellow hover:rounded-lg text-black"
-                            }`}
-                            onClick={() => setActiveSubTab(index)}
-                          >
-                            <img
-                              src={item.img}
-                              alt={item.title}
-                              className="w-14 mb-2"
-                            />
-                            <span className="text-xs md:text-base">{item.title}</span>
-                          </button>
-                        );
-                      })}
+                    {data[activeTab].items.map((item, index) => {
+                      const [activeSubTab, setActiveSubTab] =
+                        subTabsState[activeTab];
+                      return (
+                        <button
+                          key={index}
+                          className={`px-6 md:px-4 md:py-2 shadow text-white flex flex-col items-center justify-center ${
+                            activeSubTab === index
+                              ? "bg-bgYellow rounded-lg"
+                              : "hover:bg-bgYellow hover:rounded-lg text-black"
+                          }`}
+                          onClick={() => setActiveSubTab(index)}
+                        >
+                          <img
+                            src={item.img}
+                            alt={item.title}
+                            className="w-14 mb-2"
+                          />
+                          <span className="text-xs md:text-base">
+                            {item.title}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -88,7 +99,10 @@ const HomeContent = ({ activeTab, data, subTabsState }) => {
           {(activeTab === 2 || activeTab === 6) && (
             <div className="mt-4">
               {data[activeTab].items.map((item, index) => (
-                <div key={index} className="md:flex grid grid-cols-3  gap-2 mt-2 justify-start">
+                <div
+                  key={index}
+                  className="md:flex grid grid-cols-3  gap-2 mt-2 justify-start"
+                >
                   {item.content.map((imgSrc, imgIndex) => (
                     <img
                       key={imgIndex}

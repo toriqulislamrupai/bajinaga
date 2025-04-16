@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 
+body, html {
+  overflow: hidden;
+}
+
+
+
 /* Hide scrollbar for webkit browsers */
 .custom-scrollbar-hidden::-webkit-scrollbar {
   display: none;
