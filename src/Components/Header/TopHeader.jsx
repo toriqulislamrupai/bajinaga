@@ -70,6 +70,7 @@ const TopHeader = ({ toggleMenu, autoOpenModal,setIsInformationModalOpen }) => {
             language={language}
             setIsInformationModalOpen={setIsInformationModalOpen}
             />
+
             <InformationMenu setIsInformationModalOpen={setIsInformationModalOpen}/>
 
         <div className="lg:flex gap-4 hidden">

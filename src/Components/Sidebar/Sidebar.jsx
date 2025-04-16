@@ -74,12 +74,13 @@ const Sidebar = ({
       icon: rebateImage,
       link: "/information#tab10",
     },
-    {
-      id: 1,
-      name: language === "bn" ? "সদস্য " : "Member ",
-      icon: memberImage,
-      link: "/information#tab12",
-    },
+    // {
+    //   id: 1,
+    //   name: language === "bn" ? "সদস্য " : "Member ",
+    //   icon: memberImage,
+    //   link: "/information#tab12",
+    //   // className: "block lg:hidden",
+    // },
   ];
 
   useEffect(() => {
@@ -112,11 +113,12 @@ const Sidebar = ({
             </div>
 
             {/* Dynamic Menu Items */}
-            <ul className="p-4 space-y-2">
+            <ul className="p-4 pb-0 space-y-2">
               {menuItems.map((item) => (
                 <Link
                   to={item.link}
                   key={item.id}
+                  // className={item.className}
                   onClick={
                     item.id === 11
                       ? undefined
@@ -131,14 +133,14 @@ const Sidebar = ({
                         alt=""
                         className={` 
                            ${
-                          item.id === 7
-                            ? "w-[25%]"
-                            : item.id === 10
-                            ? "w-[25%]"
-                            : item.id === 1
-                            ? "w-[25%]"
-                            : "w-[25%]"
-                        }
+                             item.id === 7
+                               ? "w-[25%]"
+                               : item.id === 10
+                               ? "w-[25%]"
+                               : item.id === 1
+                               ? "w-[25%]"
+                               : "w-[25%]"
+                           }
                         `}
                       />
                       <span className="w-[100%] text-right">{item.name}</span>
@@ -149,22 +151,58 @@ const Sidebar = ({
                 </Link>
               ))}
             </ul>
+            {/* large device */}
+            <ul className="px-4 lg:block hidden ">
+              <li className="p-3 flex my-2 justify-between items-center text-white text-opacity-70 hover:text-opacity-100 bg-bgGreen hover:bg-bgGreenTwo rounded-md cursor-pointer"
+              onClick={() => setIsInformationModalOpen(true)}
+              >
+                {/* <span className="text-2xl">{item.icon}</span> */}
+                <div className="flex gap-2 ">
+                  <img
+                    src={memberImage}
+                    alt=""
+                    className={` w-[25%]
+                           
+                        `}
+                  />
+                  <span className="w-[100%] text-right">
+                    {language === "bn" ? "সদস্য " : "Member "}
+                  </span>
+                </div>
+
+                <GoArrowRight className="text-xl" />
+              </li>
+            </ul>
+            {/* small device */}
+            <ul className="px-4 lg:hidden">
+              <li className="p-3 flex my-2 justify-between items-center text-white text-opacity-70 hover:text-opacity-100 bg-bgGreen hover:bg-bgGreenTwo rounded-md cursor-pointer">
+                <Link
+                  to="/information#tab12"
+                  onClick={() => setIsInformationModalOpen(true)}
+                  className="flex justify-between items-center w-full"
+                >
+                  <div className="flex gap-2">
+                    <img src={memberImage} alt="" className="w-[25%]" />
+                    <span className="w-[100%] text-right">
+                      {language === "bn" ? "সদস্য " : "Member "}
+                    </span>
+                  </div>
+                  <GoArrowRight className="text-xl" />
+                </Link>
+              </li>
+            </ul>
 
             {/* Earn Button */}
-            <Link to={"/information#tab8"}
-            onClick={
-              
-                 () => setIsInformationModalOpen(true)
-            }
+            <Link
+              to={"/information#tab8"}
+              onClick={() => setIsInformationModalOpen(true)}
             >
-            
-            <button className="relative flex items-center p-3 cursor-pointer">
-              <span className="absolute left-2 text-white px-2 py-1 rounded-md">
-                {language === "bn" ? "অর্থ উপার্জন" : "Earn Money"}
-              </span>
-              <img src={earnMoneyImage} alt="earn money" className="ml-18" />
-            </button>
-            
+              <button className="relative flex items-center p-3 cursor-pointer">
+                <span className="absolute left-2 text-white px-2 py-1 rounded-md">
+                  {language === "bn" ? "অর্থ উপার্জন" : "Earn Money"}
+                </span>
+                <img src={earnMoneyImage} alt="earn money" className="ml-18" />
+              </button>
             </Link>
 
             {/* Support */}

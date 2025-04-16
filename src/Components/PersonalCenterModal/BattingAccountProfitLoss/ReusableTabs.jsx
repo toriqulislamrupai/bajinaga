@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { LanguageContext } from "../../../Context/LanguageContext";
 
-const ReusableTabs = ({ data, filterOptions, filters,tableHeaders }) => {
+const ReusableTabs = ({ data, filterOptions, filters }) => {
   const { language } = useContext(LanguageContext);
   //   const data = [
   //     {
@@ -127,7 +127,16 @@ const ReusableTabs = ({ data, filterOptions, filters,tableHeaders }) => {
   //       ]
   //     }
   //   ];
-
+  
+  const tableHeaders = [
+    { label: { en: "Bet Time", bn: "বেট সময়" }, key: "betTime" },
+    { label: { en: "Bet Amount", bn: "বেট পরিমাণ" }, key: "betAmount" },
+    { label: { en: "Valid Bet", bn: "বৈধ বেট" }, key: "validBet" },
+    { label: { en: "Award", bn: "অর্থ পুরস্কার" }, key: "award" },
+    { label: { en: "Profit Loss", bn: "লাভ ক্ষতি" }, key: "profitLoss" },
+    { label: { en: "Game Name", bn: "গেম নাম" }, key: "gameName" },
+    { label: { en: "Game Number", bn: "গেম নম্বর" }, key: "gameNumber" },
+  ];
 
   const [activeMainTab, setActiveMainTab] = useState(0);
   const [activeRadioTab, setActiveRadioTab] = useState(0);
@@ -139,7 +148,7 @@ const ReusableTabs = ({ data, filterOptions, filters,tableHeaders }) => {
     <div className="p-4 space-y-4 ">
       {/* Main Tabs */}
       <div className="flex gap-10 text-xs lg:text-base overflow-x-auto border-b">
-        {data.map((tab, i) => (
+        {data?.map((tab, i) => (
           <button
             key={i}
             onClick={() => {
@@ -160,7 +169,7 @@ const ReusableTabs = ({ data, filterOptions, filters,tableHeaders }) => {
       {/* Radio Tabs */}
       <div className="flex  gap-3 items-center [#1296db] flex-wrap">
         {/* Radio Tabs */}
-        {mainTab.radioTabs.map((r, i) => (
+        {mainTab?.radioTabs?.map((r, i) => (
           <label key={i} className="lg:flex hidden items-center gap-1">
             <input
               type="radio"
@@ -210,12 +219,12 @@ const ReusableTabs = ({ data, filterOptions, filters,tableHeaders }) => {
       {/* Table */}
       <div>
         <p className="text-sm mb-2">
-          Showing {radioTab.tableData.length} result(s)
+          Showing {radioTab?.tableData?.length} result(s)
         </p>
         <table className="w-full border ">
           <thead className="hidden lg:table-header-group ">
             <tr className="bg-gray-200 ">
-              {tableHeaders.map((header, i) => (
+              {tableHeaders?.map((header, i) => (
                 <th key={i} className="border p-2 font-normal">
                   {language === "bn" ? header.label.bn : header.label.en}
                 </th>
@@ -224,8 +233,8 @@ const ReusableTabs = ({ data, filterOptions, filters,tableHeaders }) => {
           </thead>
 
           <tbody className="">
-            {radioTab.tableData.length > 0 ? (
-              radioTab.tableData.map((row, i) => (
+            {radioTab?.tableData?.length > 0 ? (
+              radioTab?.tableData?.map((row, i) => (
                 <tr key={i} className="hidden lg:lg:table-row ">
                   {tableHeaders.map((header, j) => (
                     <td key={j} className="border p-2  ">

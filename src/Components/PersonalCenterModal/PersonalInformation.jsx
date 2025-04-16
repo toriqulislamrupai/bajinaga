@@ -160,15 +160,15 @@ const PersonalInformation = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location]);
 
-  const tableHeaders = [
-    { label: { en: "Bet Time", bn: "বেট সময়" }, key: "betTime" },
-    { label: { en: "Bet Amount", bn: "বেট পরিমাণ" }, key: "betAmount" },
-    { label: { en: "Valid Bet", bn: "বৈধ বেট" }, key: "validBet" },
-    { label: { en: "Award", bn: "অর্থ পুরস্কার" }, key: "award" },
-    { label: { en: "Profit Loss", bn: "লাভ ক্ষতি" }, key: "profitLoss" },
-    { label: { en: "Game Name", bn: "গেম নাম" }, key: "gameName" },
-    { label: { en: "Game Number", bn: "গেম নম্বর" }, key: "gameNumber" },
-  ];
+  // const tableHeaders = [
+  //   { label: { en: "Bet Time", bn: "বেট সময়" }, key: "betTime" },
+  //   { label: { en: "Bet Amount", bn: "বেট পরিমাণ" }, key: "betAmount" },
+  //   { label: { en: "Valid Bet", bn: "বৈধ বেট" }, key: "validBet" },
+  //   { label: { en: "Award", bn: "অর্থ পুরস্কার" }, key: "award" },
+  //   { label: { en: "Profit Loss", bn: "লাভ ক্ষতি" }, key: "profitLoss" },
+  //   { label: { en: "Game Name", bn: "গেম নাম" }, key: "gameName" },
+  //   { label: { en: "Game Number", bn: "গেম নম্বর" }, key: "gameNumber" },
+  // ];
   const filter = [
     { label: { en: "Vendor", bn: "বিক্রেতা" }, value: "vendor" },
     {
@@ -602,7 +602,6 @@ const PersonalInformation = () => {
             data={tabData}
             filterOptions={tabOptions}
             filters={filter[0]}
-            tableHeaders={tableHeaders}
           />
         </div>
       ),
@@ -617,7 +616,6 @@ const PersonalInformation = () => {
             data={tabDataAccount}
             filterOptions={accountOptions}
             filters={filter[1]}
-            tableHeaders={tableHeaders}
           />
         </div>
       ),
@@ -632,7 +630,6 @@ const PersonalInformation = () => {
             data={tabDataProfitLoss}
             filterOptions={tabOptions}
             filters={filter[0]}
-            tableHeaders={tableHeaders}
           />
         </div>
       ),
@@ -671,9 +668,11 @@ const PersonalInformation = () => {
       id: "tab10",
       label: language === "bn" ? "ম্যানুয়াল রিবেট" : "Manual Rebate",
       icon: <FaRedoAlt />,
-      content: <div>
-        <Rebate/>
-        </div>,
+      content: (
+        <div>
+          <Rebate />
+        </div>
+      ),
     },
     {
       id: "tab12",
@@ -681,9 +680,7 @@ const PersonalInformation = () => {
       icon: <FaRedoAlt />,
       content: (
         <div>
-          <AccountPhone
-          
-          />
+          <AccountPhone />
         </div>
       ),
     },
@@ -696,8 +693,19 @@ const PersonalInformation = () => {
         {/* Sidebar */}
         <div className="w-1/5 hidden bg-informationBG lg:flex flex-col min-h-screen text-white md:space-y-2 shadow-md ">
           <h3 className="text-center font-medium text-2xl">
-            {language === "en" ? "Personal <br /> Center" : "ব্যক্তিগত কেন্দ্র"}
+            <h3 className="text-center font-medium text-2xl">
+              {language === "en" ? (
+                <>
+                  Personal <br /> Center
+                </>
+              ) : (
+                <>
+                  ব্যক্তিগত <br /> কেন্দ্র
+                </>
+              )}
+            </h3>
           </h3>
+
           {tabs.map((tab, index) => {
             const isLast = index === tabs.length - 1;
 
