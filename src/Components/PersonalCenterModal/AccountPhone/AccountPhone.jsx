@@ -135,7 +135,7 @@ const AccountPhone = () => {
                 className="w-16 h-16 rounded-full"
               />
               <div className="flex flex-col lg:leading-normal leading-tight">
-                <div className="flex items-center rounded-full p-1 bg-phoneVIP mx-auto text-white">
+                <div className="flex gap-1 items-center rounded-full p-1 bg-phoneVIP mx-auto text-white">
                   <img src={vipImage} alt="" className="w-[20%]" />
                   <p className="text-xs">VIP Level 1</p>
                 </div>

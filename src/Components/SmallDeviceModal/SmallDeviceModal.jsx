@@ -34,7 +34,7 @@ const SmallDeviceModal = ({ isModal, setIsModal }) => {
             
               <button
                 onClick={() => setIsModal(false)}
-                className=" text-sm   text-black "
+                className=" text-sm   text-white "
               >
                 ✖
               </button>

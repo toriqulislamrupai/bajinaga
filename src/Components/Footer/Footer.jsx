@@ -39,7 +39,7 @@ const Footer = ({setActiveTab,isModalOpen,
           ];
         
     return (
-        <div className="text-white  md:pb-0 ">
+        <div className="text-white   md:pb-0 ">
            <div className="grid grid-cols-1 md:grid-cols-4">
             
             <Help 

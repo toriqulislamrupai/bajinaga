@@ -102,7 +102,7 @@ const Sidebar = ({
           ></div>
 
           {/* Sidebar */}
-          <div className="h-full lg:h-[600px]  fixed lg:static z-50 w-52 lg:w-64 bg-bgPrimary  text-white transition-transform duration-300 overflow-y-auto custom-scrollbar-hidden pb-60 lg:pb-20">
+          <div className="h-full lg:h-screen  fixed lg:static z-50 w-52 lg:w-64 bg-bgPrimary  text-white transition-transform duration-300 overflow-y-auto custom-scrollbar-hidden pb-60 lg:pb-20">
             {/* Sidebar Tabs */}
             <div className="hidden md:block">
               <SidebarTabs
@@ -153,6 +153,7 @@ const Sidebar = ({
             </ul>
             {/* large device */}
             <ul className="px-4 lg:block hidden ">
+              <Link to="/information#tab1">
               <li className="p-3 flex my-2 justify-between items-center text-white text-opacity-70 hover:text-opacity-100 bg-bgGreen hover:bg-bgGreenTwo rounded-md cursor-pointer"
               onClick={() => setIsInformationModalOpen(true)}
               >
@@ -172,6 +173,7 @@ const Sidebar = ({
 
                 <GoArrowRight className="text-xl" />
               </li>
+              </Link>
             </ul>
             {/* small device */}
             <ul className="px-4 lg:hidden">

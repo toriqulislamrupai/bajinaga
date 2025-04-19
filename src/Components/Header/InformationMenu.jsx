@@ -20,25 +20,25 @@ const InformationMenu = ({ setIsInformationModalOpen }) => {
     {
       id: 1,
       title: { en: "My Account", bn: "আমার অ্যাকাউন্ট" },
-      link: "information#tab1",
+      link: "/information#tab1",
       icon: AccountImage,
     },
     {
       id: 4,
       title: { en: "Betting Record", bn: "বেটিং রেকর্ড" },
-      link: "information#tab4",
+      link: "/information#tab4",
       icon: betRecordImage,
     },
     {
       id: 9,
       title: { en: "Internal Message", bn: "অভ্যন্তরীণ বার্তা" },
-      link: "information#tab9",
+      link: "/information#tab9",
       icon: messageImage,
     },
     {
       id: 4,
       title: { en: "Live Support", bn: "লাইভ সাপোর্ট" },
-      link: "/live-support",
+      link: "live-support",
       icon: liveSuportImage,
     },
     {

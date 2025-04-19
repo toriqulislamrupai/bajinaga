@@ -72,7 +72,7 @@ const MainLayout = () => {
             setIsInformationModalOpen={setIsInformationModalOpen}
           />
         </div>
-        <div className="static w-full h-[600px] md:h-[600px] flex flex-col overflow-y-auto  custom-scrollbar-hidden  bg-tabBackgroundTwo mx-auto  pt-4 pb-32  md:pb-36 ">
+        <div className="static w-full h-screen  flex flex-col overflow-y-auto  custom-scrollbar-hidden  bg-tabBackgroundTwo mx-auto  pt-4 pb-32  md:pb-36 ">
           <div className="lg:mx-auto">
             <Outlet context={{ activeTab, setActiveTab }} />
           </div>
